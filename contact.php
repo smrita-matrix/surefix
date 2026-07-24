@@ -86,7 +86,7 @@ dbg('CONFIG loaded. DB=' . DB_NAME . ' SMTP=' . SMTP_HOST);
 ============================================================ */
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     dbg('ABORT: non-POST, redirecting');
-    header('Location: /contact-us.html');
+    header('Location: /contact-us');
     exit;
 }
 

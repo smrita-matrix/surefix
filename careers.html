@@ -23,7 +23,7 @@ include 'header.php';
               </div>
               <div class="breadcrumb-list">
                 <ul>
-                  <li><a href="index.html">Home</a></li>
+                  <li><a href="/">Home</a></li>
                   <li class="active">Careers</li>
                 </ul>
               </div>
@@ -365,7 +365,7 @@ jQuery(function ($) {
         if (res.status === 'success') {
           $('#careerForm')[0].reset();
           if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
-          window.location.href = 'thank-you.html';
+          window.location.href = 'thank-you';
         } else {
           if (res.errors) {
             $.each(res.errors, function (k, v) { setError(k, v); });

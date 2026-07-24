@@ -30,7 +30,7 @@ define('DEBUG_MODE', true);
    (must run before any output)
 ============================ */
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    header('Location: /index.html');
+    header('Location: /');
     exit;
 }
 

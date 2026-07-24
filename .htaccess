@@ -31,6 +31,9 @@ AddHandler application/x-httpd-php .html .htm
 Options -MultiViews
 RewriteEngine On
 
+# Custom 404 page for any URL that does not resolve to a real file.
+ErrorDocument 404 /404-page.html
+
 # Force HTTPS + non-www  (LIVE ONLY - skipped on localhost / 127.0.0.1 for testing)
 RewriteCond %{HTTP_HOST} !^localhost [NC]
 RewriteCond %{HTTP_HOST} !^127\.0\.0\.1 [NC]

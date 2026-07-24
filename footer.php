@@ -27,7 +27,7 @@ $hideEnquiry    = isset($hideEnquiry)    ? $hideEnquiry    : false;
                       <!--<p>Partner with us for performance-driven adhesive expertise.</p>-->
                     </div>
 
-                    <a href="contact-us.html" class="footer-contact-circle">
+                    <a href="contact-us" class="footer-contact-circle">
                       <img src="images/icons/contact-now-circle.svg" alt="">
                     </a>
                   </div>
@@ -58,12 +58,12 @@ $hideEnquiry    = isset($hideEnquiry)    ? $hideEnquiry    : false;
                     <div class="f-item link">
                       <h4 class="widget-title">Quick Links</h4>
                       <ul class="foot">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="careers.html">Careers</a></li>
-                        <li><a href="events.html">Events</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="about-us">About Us</a></li>
+                        <li><a href="careers">Careers</a></li>
+                        <li><a href="events">Events</a></li>
                         <!--<li><a href="#">Blog</a></li>-->
-                        <li><a href="contact-us.html">Contact Us</a></li>
+                        <li><a href="contact-us">Contact Us</a></li>
                         <!-- <li><a href="#" class="special-btn">Shop Now</a></li> -->
                       </ul>
                     </div>
@@ -346,7 +346,7 @@ $hideEnquiry    = isset($hideEnquiry)    ? $hideEnquiry    : false;
             if (res.status === 'success') {
               $('#enquiryForm')[0].reset();
               if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
-              window.location.href = 'thank-you.html';
+              window.location.href = 'thank-you';
             } else {
               if (res.errors) {
                 $.each(res.errors, function (k, v) { setError(k, v); });

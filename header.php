@@ -61,7 +61,7 @@ $hideEnquiry = isset($hideEnquiry) ? $hideEnquiry : false;
           <div class="row v-center">
             <div class="header-item item-left">
               <div class="logo">
-                <a href="index.html"><img src="images/home/logo.webp"></a>
+                <a href="/"><img src="images/home/logo.webp"></a>
               </div>
             </div>
             <!-- menu start here -->
@@ -75,7 +75,7 @@ $hideEnquiry = isset($hideEnquiry) ? $hideEnquiry : false;
                 </div>
                 <ul class="menu-main">
                   <!--<li><a href="#">Home</a></li>-->
-                  <li><a href="about-us.html">About Us</a></li>
+                  <li><a href="about-us">About Us</a></li>
                   <li class="menu-item-has-children">
                     <a href="#">Products <i class="fa fa-angle-down"></i></a>
                     <div class="sub-menu mega-menu row mega-menu-column-4 scrollbar" id="style-3">
@@ -85,62 +85,62 @@ $hideEnquiry = isset($hideEnquiry) ? $hideEnquiry : false;
                             <div class="col-md-3 list-item border-right-one">
                               <span class="h3tag"><a href="#">Health Care</a></span>
                               <ul>
-                                <li><a href="drape-construction-tape.html">Drape Construction Tapes</a></li>
-                                <li><a href="incision-application-films.html">Incision Application Films</a></li>
-                                <li><a href="re-inforcement-tape.html">Re-inforcement Tape</a></li>
-                                <li><a href="ds-pouch-holding-tape.html">D/S Pouch Holding Tape </a></li>
-                                <li><a href="seam-sealing-tape-for-gowns.html">Seam Sealing Tape for Gowns </a></li>
-                                <li><a href="wrap-closure-tape.html">Wrap Closure Tape </a></li>
+                                <li><a href="drape-construction-tape">Drape Construction Tapes</a></li>
+                                <li><a href="incision-application-films">Incision Application Films</a></li>
+                                <li><a href="re-inforcement-tape">Re-inforcement Tape</a></li>
+                                <li><a href="ds-pouch-holding-tape">D/S Pouch Holding Tape </a></li>
+                                <li><a href="seam-sealing-tape-for-gowns">Seam Sealing Tape for Gowns </a></li>
+                                <li><a href="wrap-closure-tape">Wrap Closure Tape </a></li>
                                 <li><a href="#">Blue Non-Woven </a></li>
-                                <li><a href="eye-bandage.html">Eye Bandage </a></li>
-                                <li><a href="white-non-woven.html">White Non-Woven </a></li>
-                                <li><a href="back-neck-tape.html">Back Neck Tape</a></li>
+                                <li><a href="eye-bandage">Eye Bandage </a></li>
+                                <li><a href="white-non-woven">White Non-Woven </a></li>
+                                <li><a href="back-neck-tape">Back Neck Tape</a></li>
                               </ul>
                             </div>
                             <div class="col-md-3 list-item border-right-one">
-                              <span class="h3tag"><a href="furnishing-fabrics.html">Furnishing Fabrics</a></span>
+                              <span class="h3tag"><a href="furnishing-fabrics">Furnishing Fabrics</a></span>
                               <ul>
-                                <li><a href="furnishing-fabrics.html">Anit-Fray Tapes</a></li>
-                                <li><a href="furnishing-fabrics.html">Double sided tissue tape</a></li>
+                                <li><a href="furnishing-fabrics">Anit-Fray Tapes</a></li>
+                                <li><a href="furnishing-fabrics">Double sided tissue tape</a></li>
                               </ul>
                               <div class="menu-divider"></div>
-                              <span class="h3tag"><a href="automotive.html">Automotive</a></span>
+                              <span class="h3tag"><a href="automotive">Automotive</a></span>
                               <ul>
-                                <li><a href="automotive.html">Double Sided Panel Fixing Tape</a></li>
+                                <li><a href="automotive">Double Sided Panel Fixing Tape</a></li>
                               </ul>
                               <div class="menu-divider"></div>
-                              <span class="h3tag"><a href="tarpaulin-fibc.html">Tarpaulin / FIBC</a></span>
+                              <span class="h3tag"><a href="tarpaulin-fibc">Tarpaulin / FIBC</a></span>
                               <ul>
-                                <li><a href="tarpaulin-fibc.html">HDPE Tapes</a></li>
+                                <li><a href="tarpaulin-fibc">HDPE Tapes</a></li>
                               </ul>
                               <div class="menu-divider"></div>
-                              <span class="h3tag"><a href="fibc.html">FIBC</a></span>
+                              <span class="h3tag"><a href="fibc">FIBC</a></span>
                             </div>
                             <div class="col-md-3 list-item border-right-one">
-                              <span class="h3tag"><a href="paper-fabric-and-nonwoven-converting-industry.html">Paper, fabric & nonwoven converting industry</a></span>
+                              <span class="h3tag"><a href="paper-fabric-and-nonwoven-converting-industry">Paper, fabric & nonwoven converting industry</a></span>
                               <ul>
-                                <li><a href="paper-fabric-and-nonwoven-converting-industry.html">Splicing application</a></li>
+                                <li><a href="paper-fabric-and-nonwoven-converting-industry">Splicing application</a></li>
                               </ul>
                               <div class="menu-divider"></div>
-                              <span class="h3tag"><a href="printing-packaging-industry.html">Printing & Packaging industry</a></span>
+                              <span class="h3tag"><a href="printing-packaging-industry">Printing & Packaging industry</a></span>
                               <ul>
-                                <li><a href="printing-packaging-industry.html">Bonding and holding application</a></li>
+                                <li><a href="printing-packaging-industry">Bonding and holding application</a></li>
                               </ul>
                               <div class="menu-divider"></div>
-                              <span class="h3tag"><a href="export-hygroscopic-packaging.html">Export - hygroscopic packaging</a></span>
+                              <span class="h3tag"><a href="export-hygroscopic-packaging">Export - hygroscopic packaging</a></span>
                               <ul>
-                                <li><a href="export-hygroscopic-packaging.html">Valve closure labels (3640 Poly)</a></li>
+                                <li><a href="export-hygroscopic-packaging">Valve closure labels (3640 Poly)</a></li>
                               </ul>
                             </div>
 
                             <div class="col-md-3 list-item">
-                              <span class="h3tag"><a href="pre-engineered-building.html">Pre Engineered Building</a></span>
+                              <span class="h3tag"><a href="pre-engineered-building">Pre Engineered Building</a></span>
                               <ul>
-                                <li><a href="pre-engineered-building.html">Overlap sealing tape (ST 93)</a></li>
-                                <li><a href="pre-engineered-building.html">Screw area protection (201)</a></li>
-                                <li><a href="pre-engineered-building.html">Damaged sheet protector (SPP 120)</a></li>
-                                <li><a href="pre-engineered-building.html">Double side tape for splicing under the roof insulation (PP 4077)</a></li>
-                                <li><a href="pre-engineered-building.html">Double sided foam tape for overlap joints (6060 Black)</a></li>
+                                <li><a href="pre-engineered-building">Overlap sealing tape (ST 93)</a></li>
+                                <li><a href="pre-engineered-building">Screw area protection (201)</a></li>
+                                <li><a href="pre-engineered-building">Damaged sheet protector (SPP 120)</a></li>
+                                <li><a href="pre-engineered-building">Double side tape for splicing under the roof insulation (PP 4077)</a></li>
+                                <li><a href="pre-engineered-building">Double sided foam tape for overlap joints (6060 Black)</a></li>
                               </ul>
                             </div>
                           </div>
@@ -148,10 +148,10 @@ $hideEnquiry = isset($hideEnquiry) ? $hideEnquiry : false;
                       </div>
                     </div>
                   </li>
-                  <li><a href="careers.html">Careers</a></li>
-                  <li><a href="events.html">Events</a></li>
+                  <li><a href="careers">Careers</a></li>
+                  <li><a href="events">Events</a></li>
                   <!--<li><a href="#">Blog</a></li>-->
-                  <li><a href="contact-us.html">Contact Us</a></li>
+                  <li><a href="contact-us">Contact Us</a></li>
                 </ul>
               </nav>
             </div><!-- menu end here -->
