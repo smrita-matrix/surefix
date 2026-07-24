@@ -260,6 +260,13 @@ $hideEnquiry    = isset($hideEnquiry)    ? $hideEnquiry    : false;
 
       var ENDPOINT = 'enquiry.php';
 
+      /* This modal's own reCAPTCHA widget id. Works even when the page has a
+         second captcha (e.g. the careers/contact form): reCAPTCHA numbers
+         widgets in DOM order, so the index of the enquiry .g-recaptcha == its id. */
+      function enqWidget() {
+        return $('.g-recaptcha').index($('#enquiryModal .g-recaptcha'));
+      }
+
       /* Hard block on native form submission */
       $('#enquiryForm').on('submit', function (e) {
         e.preventDefault();
@@ -311,7 +318,7 @@ $hideEnquiry    = isset($hideEnquiry)    ? $hideEnquiry    : false;
         if (!msg) { setError('message', 'Message is required.'); ok = false; }
         else if (msg.length < 10) { setError('message', 'Message must be at least 10 characters.'); ok = false; }
 
-        if (typeof grecaptcha === 'undefined' || grecaptcha.getResponse() === '') {
+        if (typeof grecaptcha === 'undefined' || grecaptcha.getResponse(enqWidget()) === '') {
           setError('recaptcha', 'Please verify that you are not a robot.');
           ok = false;
         }
@@ -334,7 +341,7 @@ $hideEnquiry    = isset($hideEnquiry)    ? $hideEnquiry    : false;
             .find('.text-1, .text-2').text('Sending...');
 
         var payload = $('#enquiryForm').serialize()
-                    + '&g-recaptcha-response=' + encodeURIComponent(grecaptcha.getResponse());
+                    + '&g-recaptcha-response=' + encodeURIComponent(grecaptcha.getResponse(enqWidget()));
 
         $.ajax({
           url: ENDPOINT,
@@ -345,7 +352,7 @@ $hideEnquiry    = isset($hideEnquiry)    ? $hideEnquiry    : false;
             clearErrors();
             if (res.status === 'success') {
               $('#enquiryForm')[0].reset();
-              if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
+              if (typeof grecaptcha !== 'undefined') grecaptcha.reset(enqWidget());
               window.location.href = 'thank-you';
             } else {
               if (res.errors) {
@@ -353,12 +360,12 @@ $hideEnquiry    = isset($hideEnquiry)    ? $hideEnquiry    : false;
               } else {
                 $('#formAlert').addClass('alert-danger').text(res.message || 'Something went wrong.').show();
               }
-              if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
+              if (typeof grecaptcha !== 'undefined') grecaptcha.reset(enqWidget());
             }
           },
           error: function () {
             $('#formAlert').addClass('alert-danger').text('Server error. Please try again later.').show();
-            if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
+            if (typeof grecaptcha !== 'undefined') grecaptcha.reset(enqWidget());
           },
           complete: function () {
             $btn.css({ 'pointer-events': 'auto', 'opacity': '1' })
@@ -371,7 +378,7 @@ $hideEnquiry    = isset($hideEnquiry)    ? $hideEnquiry    : false;
       $('#enquiryModal').on('hidden.bs.modal', function () {
         $('#enquiryForm')[0].reset();
         clearErrors();
-        if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
+        if (typeof grecaptcha !== 'undefined') grecaptcha.reset(enqWidget());
       });
 
     });

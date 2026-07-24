@@ -51,6 +51,12 @@ $hideEnquiry = isset($hideEnquiry) ? $hideEnquiry : false;
       @media (max-width: 480px) {
         .g-recaptcha { transform: scale(0.85); transform-origin: center; }
       }
+      /* Keep form columns aligned when an error message makes one taller
+         (prevents the Bootstrap-3 float snag that shifts fields around). */
+      #enquiryForm .row, #careerForm .row, #contactForm .row { display:flex; flex-wrap:wrap; }
+      #enquiryForm .row::before,  #enquiryForm .row::after,
+      #careerForm .row::before,   #careerForm .row::after,
+      #contactForm .row::before,  #contactForm .row::after { display:none; }
     </style>
     <?php echo $extraHead; ?>
   </head>

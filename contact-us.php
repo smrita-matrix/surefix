@@ -1,6 +1,5 @@
 <?php
 $pageTitle   = 'Contact Us';
-$hideEnquiry = true;
 $extraHead   = <<<'HTML'
 <style>
   #contactForm .form-group { margin-bottom: 18px; }

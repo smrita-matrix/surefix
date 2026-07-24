@@ -1,6 +1,5 @@
 <?php
 $pageTitle   = 'Careers';
-$hideEnquiry = true;
 $extraHead   = <<<'HTML'
 <style>
   #careerForm .form-group { margin-bottom: 18px; }
