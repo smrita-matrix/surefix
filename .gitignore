@@ -1,0 +1,19 @@
+# ---- Sensitive runtime data (NEVER commit) ----
+# applicant resumes (PII)
+uploads/
+# debug logs contain applicant data + IP addresses
+*.log
+careers_debug.log
+contact_debug.log
+php_errors.log
+
+# ---- Local backups / scratch ----
+backup/
+
+# ---- OS / editor junk ----
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+.vscode/
+.idea/

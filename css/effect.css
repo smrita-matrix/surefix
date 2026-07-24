@@ -1,0 +1,106 @@
+
+
+.overlay_effect,
+.overlay_effect_slide {
+  overflow: hidden;
+}
+
+.overlay_effect img {
+  -webkit-transition-duration: 4s;
+  transition-duration: 4s;
+  -webkit-transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  width: 100%;
+}
+
+.overlay_effect_in {
+  overflow: hidden;
+  position: relative;
+  -webkit-transform: translate3d(-100.5%, 0, 0);
+  transform: translate3d(-100.5%, 0, 0);
+  -webkit-transform-origin: left;
+  transform-origin: left;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+.overlay_effect_in:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  background-color: #000;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+  -webkit-transform-origin: right;
+  transform-origin: right;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+
+.overlay_effect.is_show .overlay_effect_in {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+@media (max-width: 991px) {
+  .overlay_effect.is_show .overlay_effect_in {
+    display: inline-table;
+  }
+}
+.overlay_effect.is_show .overlay_effect_in:before {
+  -webkit-transform: scale(0, 1);
+  transform: scale(0, 1);
+}
+
+.horizontal_effect .tittle_animation {
+  margin: 0 auto;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+.horizontal_effect .tittle_animation:before {
+  text-align: left;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  transition: all 400ms ease-in-out;
+  content: attr(data-hover);
+}
+
+.horizontal_effect .tittle_animation {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.horizontal_effect .tittle_animation:before {
+  width: 0px;
+  color: #ff7070;
+}
+.horizontal_effect .tittle_animation:hover:before {
+  width: 100%;
+}

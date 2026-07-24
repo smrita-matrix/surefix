@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="81px" height="169px" viewBox="0 0 81 169" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Fill 1</title>
+    <defs>
+        <path d="M38.3638469,123.271616 C39.018584,125.234908 40.981416,125.234908 41.6361531,123.271616 C55.3782756,72.8830675 81.5544259,44.7440853 124.744085,44.7440853 L-44.7440853,44.7440853 C-1.5539661,44.7440853 24.6217244,72.8830675 38.3638469,123.271616 L44.9856445,66.3657069" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Homepage_ROUTE1_revised_JAN22" transform="translate(-994.000000, -408.000000)">
+            <g id="Fill-2" transform="translate(994.556827, 407.943173)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Fill-1" fill="#FFFFFF" transform="translate(40.000000, 84.744085) rotate(-90.000000) translate(-40.000000, -84.744085) " xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>

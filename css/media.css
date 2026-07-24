@@ -1,0 +1,407 @@
+@media (max-width:2600px){
+
+
+}
+
+@media (max-width:2000px){
+
+
+}
+
+
+@media (max-width:1700px){
+
+
+}
+
+
+@media (max-width:1400px){
+
+}
+
+
+@media (max-width:1300px){
+
+.owl-carousel{
+    padding: 0 30px;
+}
+.owl-prev{
+    left: 0%;
+}
+.owl-next{
+    right: 0%;
+}
+
+
+}
+
+
+@media (max-width:1200px){
+.nw-product-grid {
+    flex-direction: column;
+}
+.banner-shop.style-left-center .box-title .title {
+    font-size: 25px;
+}
+.banner-shop.style-left-center .content {
+    width: 50%;
+}
+.owl-prev{
+    left: -3%;
+}
+.owl-next{
+    right: -3%;
+}
+.main_menu .container{
+    width: 98%;
+}
+.tc-services-style7 .service-card {
+    padding: 30px 15px;
+}
+.top-info p.fsz-14.text-uppercase {
+    font-size: 18px;
+}
+.video-text-slider {
+    width: 80%;
+    top: 36%;
+}
+}
+
+
+@media (max-width:991px){
+.contact-form-sec {
+    padding: 60px 20px;
+}
+.contact-card .text {
+    height: auto;
+}
+.contact-card {
+    margin-bottom: 20px;
+}
+   .careers-grow{
+        display:block;
+    }
+
+    .careers-image{
+        margin-top:40px;
+    }
+
+    .careers-form-sec{
+        padding:30px;
+    }
+.wrap-closure-product-sec .row.flex-row {
+    flex-wrap: wrap;
+}
+.wrap-closure-product-sec-two .drape-grade-box {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+    .incision-film-sec .product-box{
+    flex-direction:column;
+    text-align:center;
+    margin-bottom: 30px;
+}
+
+.incision-film-sec .product-img{
+    width:100%;
+}
+.drape-product-sec .drape-top-wrapper{
+
+flex-direction:column;
+
+}
+
+.drape-product-sec .flow-grades{
+
+flex-direction:column;
+align-items:center;
+gap:50px;
+
+}
+
+.drape-product-sec .flow-grades::before{
+
+display:none;
+
+}
+
+.drape-product-sec .grade-card::before{
+
+display:none;
+
+}
+
+.drape-product-sec .grade-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.drape-product-sec .flow-main{
+
+width:100%;
+
+}
+    .about-our-journey-page .bg-img-our-journey-sec {
+        width: 50%;
+    }
+
+    .awsuac-content-sec p {
+        min-height: auto;
+    }
+
+    .awsuac-content-sec br {
+        display: none;
+    }
+
+    .about-us-one-sec .row {
+        display: block;
+    }
+
+    .about-us-custom-ow-sec {
+        margin-right: 0;
+    }
+
+    .about-us-custom-text {
+        margin-top: 30px;
+        margin-left: 0;
+    }
+    
+.excellence-innovating-list{
+    display: none;
+}
+.video-text-slider {
+    top: 40%;
+}
+.owl-carousel {
+    padding: 0 0px;
+}
+.main_menu .mega-menu .row {
+    justify-content: unset;
+}
+.industry-list .single-industry {
+    flex: 0 0 calc(51% - 24px);
+  }
+  .industry-list {
+    margin-top: 30px;
+}
+.milestones-wrap .row {
+    flex-wrap: wrap;
+}
+.milestones-wrap .col-md-4 {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.middle-gap {
+    margin: 0 0px;
+}
+.maskimg{
+    display: none;
+}
+.single-milestone {
+    width: 100%;
+}
+.service-box-2-inner {
+    width: 45%;
+}
+.footer-social {
+    margin-bottom: 30px;
+}
+.no-padding{
+    padding-left: 0;
+    margin-bottom: 30px;
+}
+.footer-bottom {
+    margin-top: 30px;
+}
+.footer-bottom p {
+    text-align: center;
+}
+.text-end ul{
+    text-align: center;
+}
+.about-text {
+    margin-top: 30px;
+}
+
+.auctc-img-sec img {
+    height: auto;
+}
+}
+
+@media (max-width:768px){
+.footer-header h2 {
+    font-size: 30px;
+}
+.footer-header p {
+    font-size: 15px;
+}
+.footer-contact-circle img {
+    max-width: 80px;
+}
+.video-content h1 {
+    font-size: 30px;
+}
+.video-content h2 {
+    font-size: 15px;
+}
+.service-box-2 .content {
+    margin-top: 10px;
+}
+.heading h2 {
+    font-size: 27px;
+}
+.heading h6 {
+    font-size: 14px;
+}
+.service-box-2 {
+    gap: 30px 5%;
+    grid-template-columns: 100% 100%;
+}
+.service-box-2 {
+    display: unset;
+}
+.service-box-2 .header {
+    padding-bottom: 10px;
+}
+.service-box-2-inner {
+    margin-bottom: 30px;
+    width: 100%;
+    padding-top: 4px;
+    position: relative;
+    top: unset;
+    right: unset;
+    opacity: 1 !important;
+    transform-origin: unset;
+    visibility: visible;
+    transform: unset;
+}
+.service-box-2 .thumb{
+    display: none;
+}
+.service-box-2 .title {
+    color: #111;
+}
+}
+
+@media (max-width:640px){
+    .ff-card-body {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .reinforcement-wrap {
+        padding: 50px 0;
+    }
+    
+    .reinforcement-wrap .row.flex-row {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .furnishing-text {
+        margin-top: 30px;
+    }
+    
+    .drape-grade-box {
+        width: 100%;
+    }
+    
+    .about-us-custom-ow-sec::before {
+        content: "";
+        position: absolute;
+        top: 20px;
+        left: -10px;
+        right: 10px;
+        bottom: -10px;
+    }
+    
+    .flex-col-two .ff-card {
+        width: 100%;
+    }
+    
+    .ff-grid-flex-row {
+        flex-direction: column;
+    }
+    
+    .about-us-custom-ow-sec::after {
+        border-radius: 14px;
+    }
+    
+    .about-us-image-box-1 {
+        width: 65%;
+    }
+
+    .about-us-image-box-2 {
+        width: 35%;
+    }
+
+    .about-us-custom-tab-card-sec .row {
+        display: block;
+    }
+
+    .custom-tabs>li {
+        width: 100%;
+    }
+
+    .about-our-journey-page .bg-img-our-journey-sec {
+        width: 100%;
+    }
+
+    .auctc-img-sec img {
+        height: auto;
+    }
+
+    .auctc-content-sec {
+        margin-top: 15px;
+    }
+
+    .what-we-do-custom-section {
+        background-position: center right;
+    }
+
+    .how-we-do-it-custom-section .row {
+        display: block;
+    }
+    
+    .banner-shop.style-left-center .content {
+        width: 100%;
+        padding: 30px 15px;
+        left: 0;
+    }
+    .banner-btn-group .upd-btn-black-square.cnt-btn-style {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width:480px){
+.video-text-slider {
+    width: 90%;
+    top: 30%;
+    left: 5%;
+}
+.main_menu .logo img {
+    width: 120px;
+}
+.shock-section {
+    margin-top: 65px;
+}
+.upd-btn-black-square.cnt-btn-style {
+    gap: 4px;
+    font-size: 13px;
+    padding: 5px 10px 5px 5px !important;
+}
+.upd-btn-black-square.cnt-btn-style i {
+    width: 25px;
+    height: 25px;
+}
+.upd-btn-black-square.cnt-btn-style i svg {
+    left: 7px;
+    bottom: 5px;
+}
+}
+
+@media (max-width:360px){
+
+
+}
