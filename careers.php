@@ -1,522 +1,394 @@
 <?php
-/* ============================================================
-   BOOTSTRAP
-============================================================ */
-error_reporting(E_ALL);
-ini_set('display_errors', 0);
-ini_set('log_errors', 1);
-ini_set('error_log', __DIR__ . '/php_errors.log');
+$pageTitle   = 'Careers';
+$hideEnquiry = true;
+$extraHead   = <<<'HTML'
+<style>
+  #careerForm .form-group { margin-bottom: 18px; }
+  .file-hint { display:block; font-size:12px; color:#888; margin-top:4px; }
+  #careerAlert { margin: 0 0 18px; padding: 12px 16px; border-radius: 4px; font-size: 14px; }
+  #careerAlert.alert-success { background:#dff0d8; color:#3c763d; border:1px solid #d6e9c6; }
+  #careerAlert.alert-danger  { background:#f2dede; color:#a94442; border:1px solid #ebccd1; }
+  #careerForm input[type="file"] { height:auto; padding:8px; }
+</style>
+HTML;
+include 'header.php';
+?>
 
-define('DBG_FILE', __DIR__ . '/careers_debug.log');
+      <section class="sf-breadcrumb-sec">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="breadcrumb-box">
+                <h2>Careers</h2>
+              </div>
+              <div class="breadcrumb-list">
+                <ul>
+                  <li><a href="/">Home</a></li>
+                  <li class="active">Careers</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-function dbg($msg) {
-    @file_put_contents(DBG_FILE, '[' . date('Y-m-d H:i:s') . '] ' . $msg . PHP_EOL, FILE_APPEND);
+      <section class="careers-sec">
+        <div class="container">
+          <!-- Grow With Us -->
+          <div class="row careers-grow">
+            <div class="col-md-6 col-sm-6">
+              <div class="careers-content">
+                <span class="careers-subtitle">Join Our Team</span>
+                <h2>Grow With Us</h2>
+                <p>
+                  We believe talented people build successful businesses. Join a team
+                  where your ideas matter, your skills are valued, and your career
+                  continues to grow through exciting opportunities and meaningful work.
+                </p>
+                <p>
+                  If you're passionate, motivated, and ready to make an impact, we'd
+                  love to hear from you.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="careers-image">
+                <img src="images/home/careers.webp" class="img-responsive" alt="Grow With Us">
+              </div>
+            </div>
+          </div>
+          <!-- Job Openings -->
+          <div class="row careers-job">
+            <div class="col-md-12">
+              <div class="career-heading">
+                <span class="careers-subtitle">Join Us</span>
+                <h2>Current Job Openings</h2>
+                <p>Explore opportunities and become a part of our growing team.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="job-card">
+                <h4>Frontend Developer</h4>
+                <span>Full Time</span>
+                <p>HTML, CSS, Bootstrap, JavaScript, WordPress</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="job-card">
+                <h4>UI/UX Designer</h4>
+                <span>Full Time</span>
+                <p>Figma, Adobe XD, Responsive Design</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="job-card">
+                <h4>PHP Developer</h4>
+                <span>Full Time</span>
+                <p>PHP, MySQL, WordPress Development</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="job-card">
+                <h4>Digital Marketing Executive</h4>
+                <span>Full Time</span>
+                <p>SEO, Social Media, Google Ads</p>
+              </div>
+            </div>
+          </div>
+        <!-- Career Form -->
+<div class="row careers-form-sec">
+  <div class="col-md-12">
+    <div class="career-heading">
+      <span class="careers-subtitle">Apply Now</span>
+      <h2>Apply by filling out the form below.</h2>
+    </div>
+  </div>
+  <div class="col-md-12">
+
+    <div id="careerAlert" style="display:none;"></div>
+
+    <form id="careerForm" novalidate enctype="multipart/form-data" onsubmit="return false;">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <label>First Name <span>*</span></label>
+            <input type="text" name="first_name" id="first_name" class="form-control" maxlength="50" autocomplete="off">
+            <small class="err-msg" data-for="first_name"></small>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <label>Last Name <span>*</span></label>
+            <input type="text" name="last_name" id="last_name" class="form-control" maxlength="50" autocomplete="off">
+            <small class="err-msg" data-for="last_name"></small>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <label>Email <span>*</span></label>
+            <input type="email" name="email" id="email" class="form-control" maxlength="150" autocomplete="off">
+            <small class="err-msg" data-for="email"></small>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <label>Phone Number <span>*</span></label>
+            <input type="tel" name="phone" id="phone" class="form-control" maxlength="15" placeholder="10-15 digits" autocomplete="off">
+            <small class="err-msg" data-for="phone"></small>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <label>City <span>*</span></label>
+            <input type="text" name="city" id="city" class="form-control" maxlength="50" autocomplete="off">
+            <small class="err-msg" data-for="city"></small>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <label>Position Applying For <span>*</span></label>
+            <input type="text" name="position" id="position" class="form-control" maxlength="100" autocomplete="off">
+            <small class="err-msg" data-for="position"></small>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-xs-12">
+          <div class="form-group">
+            <label>Your Intro? &amp; Why should we hire you?</label>
+            <textarea class="form-control" name="intro" id="intro" rows="6" maxlength="2000"></textarea>
+            <small class="err-msg" data-for="intro"></small>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-xs-12">
+          <div class="form-group">
+            <label>Attach your resume <span>*</span></label>
+            <input type="file" name="resume" id="resume" class="form-control" accept=".pdf,.doc,.docx">
+            <small class="file-hint">Accepted formats: PDF, DOC, DOCX &nbsp;|&nbsp; Max size: 5 MB</small>
+            <small class="err-msg" data-for="resume"></small>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-xs-12">
+          <div class="form-group">
+            <div class="captcha-wrap">
+              <div class="g-recaptcha"
+                   id="careerRecaptcha"
+                   data-sitekey="6Lf4cWEtAAAAAKgO5ByEq_lVo5R6zBOo93AGh2jg"
+                   data-callback="onCareerCaptchaSuccess"
+                   data-expired-callback="onCareerCaptchaExpired"></div>
+            </div>
+            <small class="err-msg" data-for="recaptcha" style="text-align:center;"></small>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-xs-12">
+          <div class="cnt-about-btn-box text-center tp_fade_anim" data-delay=".5" data-fade-from="top" data-ease="bounce">
+            <a class="upd-btn-black-square cnt-btn-style style-2" href="javascript:void(0)" id="submitCareer">
+              <i>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 11L11 1" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M1 1H11V11" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 11L11 1" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M1 1H11V11" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </i>
+              <span>
+                <span class="text-1">Submit</span>
+                <span class="text-2">Submit</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+        </div>
+      </section>
+
+
+
+<?php
+$extraScripts = <<<'HTML'
+<!-- ===== CAREER FORM SCRIPT ===== -->
+<script>
+function onCareerCaptchaSuccess() {
+  jQuery('.err-msg[data-for="recaptcha"]').text('');
+}
+function onCareerCaptchaExpired() {
+  jQuery('.err-msg[data-for="recaptcha"]').text('Verification expired. Please verify again.');
 }
 
-dbg('========== BOOT ==========');
-dbg('PHP version: ' . PHP_VERSION);
-dbg('Script: ' . __FILE__);
-dbg('METHOD: ' . ($_SERVER['REQUEST_METHOD'] ?? 'n/a'));
-dbg('IP: ' . ($_SERVER['REMOTE_ADDR'] ?? 'n/a'));
+jQuery(function ($) {
 
-register_shutdown_function(function () {
-    $err = error_get_last();
-    if ($err && in_array($err['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR], true)) {
-        dbg('FATAL: ' . $err['message'] . ' @ ' . $err['file'] . ':' . $err['line']);
-        if (!headers_sent()) header('Content-Type: application/json');
-        echo json_encode([
-            "status"  => "error",
-            "message" => "FATAL: " . $err['message'] . ' @ line ' . $err['line']
-        ]);
-    }
-});
+  var ENDPOINT     = 'careers-submit.php';
+  var MAX_BYTES    = 5 * 1024 * 1024;
+  var ALLOWED_EXTS = ['pdf', 'doc', 'docx'];
 
-set_error_handler(function ($no, $str, $file, $line) {
-    dbg('PHP WARNING/NOTICE [' . $no . ']: ' . $str . ' @ ' . $file . ':' . $line);
+  $('#careerForm').on('submit', function (e) {
+    e.preventDefault();
     return false;
-});
+  });
 
-dbg('Error handlers registered.');
+  function setError(field, msg) {
+    $('.err-msg[data-for="' + field + '"]').text(msg);
+    if (field !== 'recaptcha') $('#' + field).addClass('input-error');
+  }
 
-/* ============================================================
-   LOAD PHPMAILER
-============================================================ */
-dbg('--- REQUIRE PHPMAILER START ---');
+  function clearErrors() {
+    $('#careerForm .err-msg').text('');
+    $('#careerForm .form-control').removeClass('input-error');
+    $('#careerAlert').hide().removeClass('alert-success alert-danger');
+  }
 
-$pmBase = __DIR__ . '/PHPMailer-master/src/';
-foreach (['PHPMailer.php', 'SMTP.php', 'Exception.php'] as $f) {
-    if (!file_exists($pmBase . $f)) {
-        dbg('MISSING FILE: ' . $pmBase . $f);
-        header('Content-Type: application/json');
-        echo json_encode(["status" => "error", "message" => "PHPMailer file missing: " . $f]);
-        exit;
-    }
-    require_once $pmBase . $f;
-    dbg('LOADED: ' . $f);
-}
+  /* ---- Live input restrictions ---- */
+  $('#first_name, #last_name, #city').on('input', function () {
+    this.value = this.value.replace(/[^A-Za-z\s.'-]/g, '');
+  });
+  $('#position').on('input', function () {
+    this.value = this.value.replace(/[^A-Za-z0-9\s.,\/&'()-]/g, '');
+  });
+  $('#phone').on('input', function () {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
 
-dbg('--- REQUIRE PHPMAILER END ---');
+  /* ---- Validation ---- */
+  function validate() {
+    clearErrors();
+    var ok = true;
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception as MailException;
+    var firstName = $('#first_name').val().trim();
+    var lastName  = $('#last_name').val().trim();
+    var email     = $('#email').val().trim();
+    var phone     = $('#phone').val().trim();
+    var city      = $('#city').val().trim();
+    var position  = $('#position').val().trim();
+    var intro     = $('#intro').val().trim();
 
-/* ============================================================
-   CONFIG
-============================================================ */
-define('RECAPTCHA_SECRET', '6Lf4cWEtAAAAAGBLPCc8Cg30QImZliXI7yq0mR-_');
+    if (!firstName) { setError('first_name', 'First name is required.'); ok = false; }
+    else if (!/^[A-Za-z\s.'-]{2,50}$/.test(firstName)) { setError('first_name', 'Only letters allowed (2-50 characters).'); ok = false; }
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'surefix');
+    if (!lastName) { setError('last_name', 'Last name is required.'); ok = false; }
+    else if (!/^[A-Za-z\s.'-]{2,50}$/.test(lastName)) { setError('last_name', 'Only letters allowed (2-50 characters).'); ok = false; }
 
-define('SMTP_HOST', 'mbihosting.in');
-define('SMTP_USER', 'noreply@mbihosting.in');
-define('SMTP_PASS', '@#+FGA+1Un7]M,0u');
-define('ADMIN_EMAIL', 'smrita@matrixbricks.com');
-define('DEBUG_MODE', true);
+    if (!email) { setError('email', 'Email is required.'); ok = false; }
+    else if (!/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(email)) { setError('email', 'Enter a valid email address.'); ok = false; }
 
-/* Resume upload settings */
-define('UPLOAD_DIR', __DIR__ . '/uploads/resumes/');
-define('MAX_FILE_SIZE', 5 * 1024 * 1024); // 5 MB
+    if (!phone) { setError('phone', 'Phone number is required.'); ok = false; }
+    else if (!/^[0-9]{10,15}$/.test(phone)) { setError('phone', 'Phone must be 10 to 15 digits.'); ok = false; }
 
-dbg('CONFIG loaded. DB=' . DB_NAME . ' SMTP=' . SMTP_HOST);
+    if (!city) { setError('city', 'City is required.'); ok = false; }
+    else if (!/^[A-Za-z\s.,'-]{2,50}$/.test(city)) { setError('city', 'Only letters allowed.'); ok = false; }
 
-/* ============================================================
-   METHOD GUARD
-============================================================ */
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    dbg('ABORT: non-POST, redirecting');
-    header('Location: /careers');
-    exit;
-}
+    if (!position) { setError('position', 'Position is required.'); ok = false; }
+    else if (position.length < 2) { setError('position', 'Enter a valid position.'); ok = false; }
 
-header('Content-Type: application/json');
-dbg('POST confirmed. JSON header sent.');
-dbg('RAW POST KEYS: ' . implode(', ', array_keys($_POST)));
-dbg('RAW FILE KEYS: ' . implode(', ', array_keys($_FILES)));
+    if (intro.length > 2000) { setError('intro', 'Intro must be under 2000 characters.'); ok = false; }
 
-/* ============================================================
-   COLLECT DATA
-============================================================ */
-$first_name = trim($_POST['first_name'] ?? '');
-$last_name  = trim($_POST['last_name'] ?? '');
-$email      = trim($_POST['email'] ?? '');
-$phone      = trim($_POST['phone'] ?? '');
-$city       = trim($_POST['city'] ?? '');
-$position   = trim($_POST['position'] ?? '');
-$intro      = trim($_POST['intro'] ?? '');
-$recaptcha  = trim($_POST['g-recaptcha-response'] ?? '');
-
-dbg('FIELD first_name=' . $first_name);
-dbg('FIELD last_name=' . $last_name);
-dbg('FIELD email=' . $email);
-dbg('FIELD phone=' . $phone);
-dbg('FIELD city=' . $city);
-dbg('FIELD position=' . $position);
-dbg('FIELD intro length=' . strlen($intro));
-dbg('FIELD recaptcha length=' . strlen($recaptcha));
-
-$errors = [];
-
-/* ============================================================
-   FIELD VALIDATION
-============================================================ */
-dbg('--- VALIDATION START ---');
-
-if ($first_name === '' || !preg_match("/^[A-Za-z\s.'-]{2,50}$/", $first_name)) {
-    $errors['first_name'] = "Enter a valid first name (letters only).";
-    dbg('FAIL: first_name');
-} else { dbg('OK: first_name'); }
-
-if ($last_name === '' || !preg_match("/^[A-Za-z\s.'-]{2,50}$/", $last_name)) {
-    $errors['last_name'] = "Enter a valid last name (letters only).";
-    dbg('FAIL: last_name');
-} else { dbg('OK: last_name'); }
-
-if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors['email'] = "Enter a valid email address.";
-    dbg('FAIL: email');
-} else { dbg('OK: email'); }
-
-if (!preg_match("/^[0-9]{10,15}$/", $phone)) {
-    $errors['phone'] = "Phone number must be 10 to 15 digits.";
-    dbg('FAIL: phone');
-} else { dbg('OK: phone'); }
-
-if ($city === '' || !preg_match("/^[A-Za-z\s.,'-]{2,50}$/", $city)) {
-    $errors['city'] = "Enter a valid city name (letters only).";
-    dbg('FAIL: city');
-} else { dbg('OK: city'); }
-
-if ($position === '' || !preg_match("/^[A-Za-z0-9\s.,\/&'()-]{2,100}$/", $position)) {
-    $errors['position'] = "Enter a valid position.";
-    dbg('FAIL: position');
-} else { dbg('OK: position'); }
-
-if ($intro !== '' && strlen($intro) > 2000) {
-    $errors['intro'] = "Intro must be under 2000 characters.";
-    dbg('FAIL: intro too long');
-} else { dbg('OK: intro'); }
-
-dbg('--- VALIDATION END. errors=' . count($errors) . ' ---');
-
-/* ============================================================
-   RESUME FILE VALIDATION
-============================================================ */
-dbg('--- FILE VALIDATION START ---');
-
-$resumeOk       = false;
-$resumeTmp      = '';
-$resumeOrigName = '';
-$resumeNewName  = '';
-$resumeMime     = '';
-
-if (!isset($_FILES['resume']) || $_FILES['resume']['error'] === UPLOAD_ERR_NO_FILE) {
-    $errors['resume'] = "Please attach your resume.";
-    dbg('FILE FAIL: no file uploaded');
-} elseif ($_FILES['resume']['error'] !== UPLOAD_ERR_OK) {
-    $errors['resume'] = "File upload failed. Please try again.";
-    dbg('FILE FAIL: upload error code=' . $_FILES['resume']['error']);
-} else {
-    $resumeTmp      = $_FILES['resume']['tmp_name'];
-    $resumeOrigName = basename($_FILES['resume']['name']);
-    $resumeSize     = (int) $_FILES['resume']['size'];
-    $resumeExt      = strtolower(pathinfo($resumeOrigName, PATHINFO_EXTENSION));
-
-    dbg('FILE: name=' . $resumeOrigName . ' size=' . $resumeSize . ' ext=' . $resumeExt);
-
-    if ($resumeSize > MAX_FILE_SIZE) {
-        $errors['resume'] = "Resume must be under 5 MB.";
-        dbg('FILE FAIL: too large');
-    } elseif (!in_array($resumeExt, ['pdf', 'doc', 'docx'], true)) {
-        $errors['resume'] = "Only PDF, DOC or DOCX files are allowed.";
-        dbg('FILE FAIL: bad extension');
+    /* File validation */
+    var fileInput = document.getElementById('resume');
+    if (!fileInput.files || fileInput.files.length === 0) {
+      setError('resume', 'Please attach your resume.');
+      ok = false;
     } else {
-        /* Verify real MIME type, not just the extension */
-        $finfo = finfo_open(FILEINFO_MIME_TYPE);
-        $resumeMime = finfo_file($finfo, $resumeTmp);
-        finfo_close($finfo);
-        dbg('FILE: detected mime=' . $resumeMime);
+      var file = fileInput.files[0];
+      var ext  = file.name.split('.').pop().toLowerCase();
 
-        $allowedMime = [
-            'application/pdf',
-            'application/msword',
-            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-            'application/octet-stream',
-            'application/zip'
-        ];
+      if (ALLOWED_EXTS.indexOf(ext) === -1) {
+        setError('resume', 'Only PDF, DOC or DOCX files are allowed.');
+        ok = false;
+      } else if (file.size > MAX_BYTES) {
+        setError('resume', 'File is too large. Maximum size is 5 MB.');
+        ok = false;
+      } else if (file.size === 0) {
+        setError('resume', 'The selected file appears to be empty.');
+        ok = false;
+      }
+    }
 
-        if (!in_array($resumeMime, $allowedMime, true)) {
-            $errors['resume'] = "Invalid file type. Upload a PDF, DOC or DOCX.";
-            dbg('FILE FAIL: mime not allowed');
-        } else {
-            $safeName      = preg_replace('/[^A-Za-z0-9]/', '_', $first_name . '_' . $last_name);
-            $resumeNewName = $safeName . '_' . date('Ymd_His') . '_' . mt_rand(1000, 9999) . '.' . $resumeExt;
-            $resumeOk      = true;
-            dbg('FILE OK. target name=' . $resumeNewName);
+    if (typeof grecaptcha === 'undefined' || grecaptcha.getResponse() === '') {
+      setError('recaptcha', 'Please verify that you are not a robot.');
+      ok = false;
+    }
+
+    return ok;
+  }
+
+  $('#first_name, #last_name, #email, #phone, #city, #position').on('blur', function () {
+    if ($(this).val().trim() !== '') validate();
+  });
+
+  $('#resume').on('change', function () {
+    $('.err-msg[data-for="resume"]').text('');
+    $(this).removeClass('input-error');
+  });
+
+  /* ---- Submit via AJAX (FormData for file upload) ---- */
+  $('#submitCareer').on('click', function (e) {
+    e.preventDefault();
+
+    if (!validate()) return;
+
+    var $btn = $(this);
+    $btn.css({ 'pointer-events': 'none', 'opacity': '0.6' })
+        .find('.text-1, .text-2').text('Sending...');
+
+    var formData = new FormData(document.getElementById('careerForm'));
+    formData.append('g-recaptcha-response', grecaptcha.getResponse());
+
+    $.ajax({
+      url: ENDPOINT,
+      type: 'POST',
+      dataType: 'text',
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (raw) {
+        var res;
+        try {
+          res = JSON.parse(raw);
+        } catch (err) {
+          $('#careerAlert').addClass('alert-danger')
+            .text('Bad server response — see console.').show();
+          console.error('JSON parse failed. Server said:', raw);
+          return;
         }
-    }
-}
+        clearErrors();
+        if (res.status === 'success') {
+          $('#careerForm')[0].reset();
+          if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
+          window.location.href = 'thank-you';
+        } else {
+          if (res.errors) {
+            $.each(res.errors, function (k, v) { setError(k, v); });
+          } else {
+            $('#careerAlert').addClass('alert-danger').text(res.message || 'Something went wrong.').show();
+          }
+          if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
+        }
+      },
+      error: function (xhr) {
+        $('#careerAlert').addClass('alert-danger')
+          .text('Server error (' + xhr.status + '): ' + (xhr.responseText || '').substring(0, 200)).show();
+        if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
+      },
+      complete: function () {
+        $btn.css({ 'pointer-events': 'auto', 'opacity': '1' })
+            .find('.text-1, .text-2').text('Submit');
+      }
+    });
+  });
 
-dbg('--- FILE VALIDATION END ---');
-
-/* ============================================================
-   RECAPTCHA
-============================================================ */
-dbg('--- RECAPTCHA START ---');
-
-if ($recaptcha === '') {
-    $errors['recaptcha'] = "Please verify that you are not a robot.";
-    dbg('RECAPTCHA: empty token');
-} else {
-    $verifyData = http_build_query([
-        'secret'   => RECAPTCHA_SECRET,
-        'response' => $recaptcha,
-        'remoteip' => $_SERVER['REMOTE_ADDR'] ?? ''
-    ]);
-    dbg('RECAPTCHA: query built');
-
-    $verifyResponse = false;
-
-    if (function_exists('curl_init')) {
-        dbg('RECAPTCHA: cURL available');
-        $ch = curl_init('https://www.google.com/recaptcha/api/siteverify');
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $verifyData);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $verifyResponse = curl_exec($ch);
-        dbg('RECAPTCHA: curl http_code=' . curl_getinfo($ch, CURLINFO_HTTP_CODE));
-        if ($verifyResponse === false) dbg('RECAPTCHA cURL ERROR: ' . curl_error($ch));
-        curl_close($ch);
-    } else {
-        dbg('RECAPTCHA: cURL MISSING, falling back');
-        $verifyResponse = @file_get_contents('https://www.google.com/recaptcha/api/siteverify?' . $verifyData);
-    }
-
-    dbg('RECAPTCHA RAW: ' . var_export($verifyResponse, true));
-
-    $captchaResult = json_decode($verifyResponse, true);
-    dbg('RECAPTCHA DECODED: ' . json_encode($captchaResult));
-
-    if (empty($captchaResult['success'])) {
-        $errors['recaptcha'] = "Captcha verification failed. Please try again.";
-        dbg('RECAPTCHA FAIL codes: ' . json_encode($captchaResult['error-codes'] ?? []));
-    } else {
-        dbg('RECAPTCHA PASS');
-    }
-}
-
-dbg('--- RECAPTCHA END ---');
-
-if (!empty($errors)) {
-    dbg('EXIT with validation errors: ' . json_encode($errors));
-    echo json_encode(["status" => "error", "errors" => $errors]);
-    exit;
-}
-
-/* ============================================================
-   MOVE UPLOADED FILE
-============================================================ */
-dbg('--- FILE MOVE START ---');
-
-if (!is_dir(UPLOAD_DIR)) {
-    if (!@mkdir(UPLOAD_DIR, 0755, true)) {
-        dbg('FILE MOVE FAIL: could not create ' . UPLOAD_DIR);
-        echo json_encode([
-            "status"  => "error",
-            "message" => DEBUG_MODE ? "Could not create upload directory." : "Upload error."
-        ]);
-        exit;
-    }
-    dbg('FILE: created upload dir ' . UPLOAD_DIR);
-}
-
-$resumePath = UPLOAD_DIR . $resumeNewName;
-
-if (!move_uploaded_file($resumeTmp, $resumePath)) {
-    dbg('FILE MOVE FAIL: could not move to ' . $resumePath);
-    echo json_encode([
-        "status"  => "error",
-        "message" => DEBUG_MODE ? "Could not save resume file." : "Upload error."
-    ]);
-    exit;
-}
-
-dbg('FILE MOVED OK -> ' . $resumePath);
-dbg('--- FILE MOVE END ---');
-
-/* ============================================================
-   DATABASE
-============================================================ */
-dbg('--- DB START ---');
-
-if (!class_exists('mysqli')) {
-    dbg('FATAL: mysqli extension not available');
-    echo json_encode(["status" => "error", "message" => "mysqli extension missing on server."]);
-    exit;
-}
-dbg('DB: mysqli class OK');
-
-mysqli_report(MYSQLI_REPORT_OFF);
-
-$conn = @new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-if ($conn->connect_error) {
-    dbg('DB CONNECT FAIL: ' . $conn->connect_error);
-    echo json_encode([
-        "status"  => "error",
-        "message" => DEBUG_MODE ? ("DB connect failed: " . $conn->connect_error) : "Database error."
-    ]);
-    exit;
-}
-dbg('DB CONNECTED to ' . DB_NAME);
-
-$conn->set_charset("utf8mb4");
-dbg('DB charset set to utf8mb4');
-
-$tblCheck = $conn->query("SHOW TABLES LIKE 'career_applications'");
-if (!$tblCheck || $tblCheck->num_rows === 0) {
-    dbg('DB FAIL: table career_applications does NOT exist');
-    echo json_encode([
-        "status"  => "error",
-        "message" => DEBUG_MODE ? "Table 'career_applications' does not exist. Run the CREATE TABLE query." : "Database error."
-    ]);
-    exit;
-}
-dbg('DB: table career_applications exists');
-
-$sql = "INSERT INTO career_applications
-        (first_name, last_name, email, phone, city, position, intro, resume_file, resume_original_name, ip_address, created_at)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
-dbg('DB SQL: ' . $sql);
-
-$stmt = $conn->prepare($sql);
-if ($stmt === false) {
-    dbg('DB PREPARE FAIL: ' . $conn->error);
-    echo json_encode([
-        "status"  => "error",
-        "message" => DEBUG_MODE ? ("Prepare failed: " . $conn->error) : "Database error."
-    ]);
-    exit;
-}
-dbg('DB PREPARE OK');
-
-$ip = $_SERVER['REMOTE_ADDR'] ?? '';
-$stmt->bind_param(
-    "ssssssssss",
-    $first_name, $last_name, $email, $phone, $city,
-    $position, $intro, $resumeNewName, $resumeOrigName, $ip
-);
-dbg('DB BIND OK');
-
-if (!$stmt->execute()) {
-    dbg('DB EXECUTE FAIL: ' . $stmt->error);
-    echo json_encode([
-        "status"  => "error",
-        "message" => DEBUG_MODE ? ("Insert failed: " . $stmt->error) : "Database error."
-    ]);
-    exit;
-}
-dbg('DB INSERT OK. insert_id=' . $stmt->insert_id);
-
-$stmt->close();
-$conn->close();
-dbg('--- DB END ---');
-
-/* ============================================================
-   EMAIL TEMPLATE
-============================================================ */
-function emailTemplate($title, $content) {
-    return "
-    <div style='font-family:Arial,Helvetica,sans-serif;max-width:600px;margin:auto;border:1px solid #ddd'>
-        <div style='background:#000;padding:18px;text-align:center'>
-            <img src='https://surefix.co.in/images/home/logo.webp' alt='Surefix' style='max-width:180px;'>
-        </div>
-        <div style='padding:22px;color:#333;font-size:14px;line-height:1.6'>
-            <h2 style='margin-top:0;color:#111'>{$title}</h2>
-            {$content}
-        </div>
-        <div style='background:#f2f2f2;padding:12px;text-align:center;font-size:12px;color:#666'>
-            © " . date('Y') . " Surefix — S Doshi Papers Industries Private Limited
-        </div>
-    </div>";
-}
-
-$esc = function ($v) { return htmlspecialchars($v, ENT_QUOTES, 'UTF-8'); };
-dbg('Email template + escaper ready.');
-
-/* ============================================================
-   MAIL
-============================================================ */
-dbg('--- MAIL START ---');
-
-$mailSent  = false;
-$mailError = '';
-$mail      = null;
-
-try {
-    $mail = new PHPMailer(true);
-    dbg('MAIL: PHPMailer instantiated');
-
-    $mail->SMTPDebug   = 2;
-    $mail->Debugoutput = function ($str, $level) { dbg('SMTP[' . $level . '] ' . trim($str)); };
-
-    $mail->isSMTP();
-    $mail->Host        = SMTP_HOST;
-    $mail->SMTPAuth    = true;
-    $mail->Username    = SMTP_USER;
-    $mail->Password    = SMTP_PASS;
-    $mail->SMTPSecure  = PHPMailer::ENCRYPTION_SMTPS;
-    $mail->Port        = 465;
-    $mail->Timeout     = 20;
-    $mail->isHTML(true);
-    $mail->CharSet     = "UTF-8";
-    $mail->SMTPOptions = [
-        'ssl' => ['verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true]
-    ];
-    dbg('MAIL: SMTP configured host=' . SMTP_HOST . ' port=465 SMTPS');
-
-    /* ---- ADMIN MAIL (with resume attached) ---- */
-    $mail->setFrom(SMTP_USER, 'Surefix Careers');
-    $mail->addAddress(ADMIN_EMAIL);
-    $mail->addReplyTo($email, $first_name . ' ' . $last_name);
-    $mail->Subject = "New Job Application - " . $position . " | Surefix";
-
-    $mail->addAttachment($resumePath, $resumeOrigName);
-    dbg('MAIL: resume attached -> ' . $resumeOrigName);
-
-    $adminContent = "
-        <p><b>First Name:</b> " . $esc($first_name) . "</p>
-        <p><b>Last Name:</b> " . $esc($last_name) . "</p>
-        <p><b>Email:</b> " . $esc($email) . "</p>
-        <p><b>Phone Number:</b> " . $esc($phone) . "</p>
-        <p><b>City:</b> " . $esc($city) . "</p>
-        <p><b>Position Applying For:</b> " . $esc($position) . "</p>
-        <hr>
-        <p><b>Intro / Why should we hire you:</b><br>"
-        . ($intro !== '' ? nl2br($esc($intro)) : '<i>Not provided</i>') . "</p>
-        <hr>
-        <p><b>Resume:</b> " . $esc($resumeOrigName) . " <i>(attached to this email)</i></p>
-        <p style='font-size:12px;color:#888'>Submitted on " . date('d M Y, h:i A') . " | IP: " . $esc($ip) . "</p>
-    ";
-    $mail->Body = emailTemplate("New Job Application Received", $adminContent);
-    dbg('MAIL: admin body built');
-
-    $mail->send();
-    dbg('MAIL: ADMIN SENT OK');
-
-    /* ---- USER ACKNOWLEDGEMENT (no attachment) ---- */
-    $mail->clearAddresses();
-    $mail->clearReplyTos();
-    $mail->clearAttachments();
-    dbg('MAIL: recipients + attachments cleared');
-
-    $mail->addAddress($email, $first_name . ' ' . $last_name);
-    $mail->setFrom(SMTP_USER, 'Surefix');
-    $mail->addReplyTo('sales@surefix.co.in', 'Surefix HR');
-    $mail->Subject = "Thank You for Applying to Surefix";
-
-    $userContent = "
-        <p>Hi " . $esc($first_name) . ",</p>
-        <p>Thank you for applying for the position of <b>" . $esc($position) . "</b> at <b>Surefix</b>.</p>
-        <p>We have received your application along with your resume. Our HR team will review your profile and get in touch if your background matches our current requirements.</p>
-        <p>Please note that due to the volume of applications, only shortlisted candidates will be contacted.</p>
-        <br>
-        <p>Regards,<br><b>Team Surefix</b><br>
-        <a href='mailto:sales@surefix.co.in'>sales@surefix.co.in</a> | +91 95797 26091</p>
-    ";
-    $mail->Body = emailTemplate("Application Received!", $userContent);
-    dbg('MAIL: user body built');
-
-    $mail->send();
-    dbg('MAIL: USER SENT OK');
-
-    $mailSent = true;
-
-} catch (MailException $ex) {
-    $mailError = ($mail && $mail->ErrorInfo) ? $mail->ErrorInfo : $ex->getMessage();
-    dbg('MAIL EXCEPTION: ' . $mailError);
-} catch (\Throwable $t) {
-    $mailError = $t->getMessage() . ' @ line ' . $t->getLine();
-    dbg('MAIL THROWABLE: ' . $mailError);
-}
-
-dbg('--- MAIL END. sent=' . ($mailSent ? 'YES' : 'NO') . ' ---');
-
-/* ============================================================
-   RESPONSE
-============================================================ */
-if ($mailSent) {
-    dbg('RESPONSE: success');
-    echo json_encode(["status" => "success", "message" => "Thank you! Your application has been submitted."]);
-} elseif (DEBUG_MODE) {
-    dbg('RESPONSE: mail error surfaced');
-    echo json_encode(["status" => "error", "message" => "MAIL ERROR: " . $mailError]);
-} else {
-    dbg('RESPONSE: success despite mail failure');
-    echo json_encode(["status" => "success", "message" => "Your application has been recorded. We will contact you shortly."]);
-}
-
-dbg('========== END ==========');
+});
+</script>
+HTML;
+include 'footer.php';
+?>

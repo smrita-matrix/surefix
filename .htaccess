@@ -13,32 +13,14 @@
 </IfModule>
 # END cPanel-generated php ini directives, do not edit
 
-# ==========================================================
-# Run PHP inside .html files so shared header.php / footer.php
-# includes work without renaming pages to .php.
-#
-# IMPORTANT: do NOT use "AddType application/x-httpd-php .html" here.
-# On this host that makes the browser DOWNLOAD the page instead of
-# running it. SetHandler runs PHP without setting a download type.
-#
-# If pages now show raw "<?php" source instead, your host needs the
-# version-specific handler: comment the FilesMatch block below and
-# uncomment the AddHandler line that matches your PHP version
-# (check it in cPanel > MultiPHP Manager).
-# ==========================================================
-<FilesMatch "\.(html|htm)$">
-    SetHandler application/x-httpd-php
-</FilesMatch>
-# --- Fallback if raw <?php shows (use exactly ONE, matching your PHP version): ---
-# AddHandler application/x-httpd-ea-php82 .html .htm
-# AddHandler application/x-httpd-ea-php81 .html .htm
-# AddHandler application/x-httpd-ea-php74 .html .htm
+# Pages are real .php files now, so PHP executes natively on every host.
+# (No AddType/AddHandler tricks needed for running PHP inside .html.)
 
 Options -MultiViews
 RewriteEngine On
 
-# Custom 404 page for any URL that does not resolve to a real file.
-ErrorDocument 404 /404-page.html
+# Custom 404 page (served by 404-page.php, keeps a real 404 status).
+ErrorDocument 404 /404-page.php
 
 # Force HTTPS + non-www  (LIVE ONLY - skipped on localhost / 127.0.0.1 for testing)
 RewriteCond %{HTTP_HOST} !^localhost [NC]
@@ -47,20 +29,22 @@ RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ https://surefix.co.in%{REQUEST_URI} [R=301,L]
 
-# 1. Redirect /index.html -> /   (LIVE ONLY)
+# 1. Redirect /index.html or /index.php -> /   (LIVE ONLY; old indexed URLs)
 RewriteCond %{HTTP_HOST} !^localhost [NC]
 RewriteCond %{HTTP_HOST} !^127\.0\.0\.1 [NC]
-RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.(html|php)[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
 
-# 2. Redirect /page.html -> /page   (LIVE ONLY)
+# 2. Redirect /page.html or /page.php -> /page  (clean URLs; LIVE ONLY, GET only)
+#    GET-only so AJAX form POSTs to the *.php handlers are never redirected.
 RewriteCond %{HTTP_HOST} !^localhost [NC]
 RewriteCond %{HTTP_HOST} !^127\.0\.0\.1 [NC]
-RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteCond %{REQUEST_METHOD} =GET
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.(html|php)[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
 
-# 3. Internally serve /page as /page.html
+# 3. Internally serve /page as /page.php
 #    (no RewriteBase, so it works both at web root AND in a /surefix/ subfolder)
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.+?)/?$ $1.html [L]
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.+?)/?$ $1.php [L]
