@@ -16,17 +16,23 @@
 # ==========================================================
 # Run PHP inside .html files so shared header.php / footer.php
 # includes work without renaming pages to .php.
-# NOTE: the correct handler differs per host. If pages show raw
-# "<?php" code on the LIVE server, comment the line below and
-# uncomment the matching handler for your PHP version instead
-# (find the exact name in cPanel > MultiPHP Manager, e.g.
-#  application/x-httpd-ea-php82).
+#
+# IMPORTANT: do NOT use "AddType application/x-httpd-php .html" here.
+# On this host that makes the browser DOWNLOAD the page instead of
+# running it. SetHandler runs PHP without setting a download type.
+#
+# If pages now show raw "<?php" source instead, your host needs the
+# version-specific handler: comment the FilesMatch block below and
+# uncomment the AddHandler line that matches your PHP version
+# (check it in cPanel > MultiPHP Manager).
 # ==========================================================
-<IfModule mime_module>
-    AddType application/x-httpd-php .html .htm
-</IfModule>
-AddHandler application/x-httpd-php .html .htm
+<FilesMatch "\.(html|htm)$">
+    SetHandler application/x-httpd-php
+</FilesMatch>
+# --- Fallback if raw <?php shows (use exactly ONE, matching your PHP version): ---
 # AddHandler application/x-httpd-ea-php82 .html .htm
+# AddHandler application/x-httpd-ea-php81 .html .htm
+# AddHandler application/x-httpd-ea-php74 .html .htm
 
 Options -MultiViews
 RewriteEngine On
